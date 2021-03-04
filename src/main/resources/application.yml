@@ -1,0 +1,25 @@
+zuul:
+  ignoredServices: '*'
+  routes:
+    list-permissions:
+      path: /list-permissions/**
+      serviceId: store-config-access
+      url: http://localhost:9095
+      stripPrefix: false
+    save-permission:
+      path: /save-permission/**
+      serviceId: store-config-access
+      url: http://localhost:9095
+      stripPrefix: false
+    update-permission:
+      path: /update-permission/**
+      serviceId: store-config-access
+      url: http://localhost:9095
+      stripPrefix: false
+    delete-permission:
+      path: /delete-permission/**
+      serviceId: store-config-access
+      url: http://localhost:9095
+      stripPrefix: false
+
+
