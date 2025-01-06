@@ -1,0 +1,34 @@
+plugins {
+    id "org.springframework.boot" version "2.2.5.RELEASE"
+    id 'io.spring.dependency-management' version '1.0.9.RELEASE'
+    id 'java'
+    id 'maven-publish'
+}
+
+group = 'com.mdsdanny'
+version = '1.0.0'
+sourceCompatibility = '1.12'
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+    maven {
+        url 'https://repo.spring.io/libs-milestone'
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.cloud:spring-cloud-starter-netflix-hystrix:2.2.1.RELEASE'
+    implementation 'org.springframework.cloud:spring-cloud-starter-netflix-zuul:2.2.1.RELEASE'
+    implementation 'com.google.code.gson:gson:2.8.6'
+    implementation 'javax.xml.bind:jaxb-api'
+    testImplementation('org.springframework.boot:spring-boot-starter-test') {
+        exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+    }
+}
+
+test {
+    useJUnitPlatform()
+}
